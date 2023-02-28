@@ -1,0 +1,27 @@
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  @include font-sizes-important(64, 77);
+  font-weight: 300;
+}
+
+h2 {
+  @include font-sizes-important(48, 58);
+  font-weight: 300;
+}
+
+h3 {
+  @include font-sizes-important(40, 48);
+}
+
+h4 {
+  @include font-sizes-important(32, 36);
+  font-weight: 400;
+}
+
+h5 {
+  @include font-sizes-important(24, 31);
+  font-weight: 400;
+}

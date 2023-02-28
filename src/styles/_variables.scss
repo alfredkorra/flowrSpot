@@ -1,0 +1,30 @@
+// @import "../styles/font";
+
+$margin-base: 16px;
+$padding-base: 16px;
+$base-font-size: 16;
+$base-line-height: 16px;
+$font-unit: rem;
+
+$breakpoint-xsm: 320px;
+$breakpoint-sm: 568px;
+$breakpoint-m: 1024px;
+$breakpoint-l: 1366px;
+$breakpoint-w: 1920px;
+
+$media-query-gap: 1px;
+$grid-breakpoint--xs: 0;
+$grid-breakpoint--sm: 576px;
+$grid-breakpoint--md: 768px;
+$grid-breakpoint--lg: 992px;
+$grid-breakpoint--xl: 1440px;
+$grid-breakpoint--xxl: 1600px;
+
+$color-white: #fff;
+$color-backgroud-grey: #f4f4f4;
+
+$modal-backdrop-background:  rgba(0, 0, 0, 0.5);
+$modal-overlay-background-color: rgba(0, 0, 0, 0.7);
+$modal-box-shadow-color:  0px 15px 30px rgba(0, 0, 0, 0.05);
+$modal-background-color: #ffffff;
+

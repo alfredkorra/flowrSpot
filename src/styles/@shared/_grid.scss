@@ -1,0 +1,243 @@
+@import "../@shared/flexbox";
+@import "../variables";
+
+$columns: 12;
+$outerMargin: 32px;
+$gutter: 32px;
+
+$content-full-width: 100%;
+$content-width-1024: 1024px - 60px; 
+$content-width-1500: 1500px - 60px;
+
+$media-query-max-639: "(max-width: 639px)";
+$media-query-min-640: "(min-width: 640px)";
+$media-query-min-640-max-959: "(min-width: 640px) and (max-width: 959px)";
+$media-query-min-960-max-1023: "(min-width: 960px) and (max-width: 1023px)";
+$media-query-min-1024-max-1499: "(min-width: 1024px) and (max-width: 1499px)";
+$media-query-min-1500: "(min-width: 1500px)";
+$direction: 1;
+
+/* 
+ * rows
+ */
+@mixin row($axis: row, $wrap: wrap) {
+  @include flexbox();
+  @include flex-flow($axis $wrap);
+  @include gutter(-1);
+}
+
+/* 
+ * gutter
+ */
+
+@mixin gutter($direction: 1) {
+  @media screen and (min-width: $breakpoint-l) {
+    margin-left: 16px * ($direction);
+    margin-right: 16px * ($direction);
+  }
+
+  @media screen and (min-width: $breakpoint-sm) and (max-width: ($breakpoint-l - 0.02)) {
+    margin-left: 12px * ($direction);
+    margin-right: 12px * ($direction);
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-left: 8px * ($direction);
+    margin-right: 8px * ($direction);
+  }
+
+}
+
+.cp-row {
+  @include row();
+  height: 100%;
+  position: relative;
+}
+
+@mixin container() {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container {
+  @include container();
+  max-width: 1760px;
+}
+
+/* 
+ * Columns
+ */
+
+
+@mixin column($x, $columns: $columns) {
+  $column: ($x/$columns) * 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: calc(#{$column} - #{$gutter});
+  max-width: calc(#{$column} - #{$gutter});
+  position: relative;
+  @include gutter(1);
+}
+
+.container {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1 * $padding-base;
+  padding-right: 1 * $padding-base;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+@media (min-width: $breakpoint-sm) {
+  .container {
+    padding-left: 1.5 * $padding-base;
+    padding-right: 1.5 * $padding-base;
+    width: 100%;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  // max-width: 100%;
+
+  .col-1 {
+    @include column(1);
+  }
+
+  .col-2 {
+    @include column(2);
+  }
+
+  .col-3 {
+    @include column(3);
+  }
+
+  .col-4 {
+    @include column(4);
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .col-5 {
+    @include column(5);
+  }
+
+  .col-6 {
+    @include column(6);
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .col-7 {
+    @include column(7);
+  }
+
+  .col-8 {
+    @include column(8);
+  }
+
+  .col-9 {
+    @include column(9);
+  }
+
+  .col-10 {
+    @include column(10);
+  }
+
+  .col-11 {
+    @include column(11);
+  }
+
+  .col-12 {
+    @include column(12);
+  }
+}
+
+@media (min-width: $breakpoint-l) {
+  .container {
+    padding-left: 2 * $padding-base;
+    padding-right: 2 * $padding-base;
+    width: 100%;
+  }
+}
+
+@media (max-width: ($breakpoint-m - 0.02)) and (min-width: $breakpoint-sm) {
+  .col-3 {
+    @include column(4);
+    flex-basis: calc(33.3% - 24px);
+    max-width: calc(33.3% - 24px);
+  }
+
+  .col-4,
+  .col-6 {
+    flex-basis: calc(50% - 24px);
+    max-width: calc(50% - 24px);
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-m) and (max-width: ($breakpoint-l - 0.02)) {
+  .col-3 {
+    flex-basis: calc(25% - 24px);
+    max-width: calc(25% - 24px);
+  }
+
+  .col-9 {
+    flex-basis: calc(75% - 24px);
+    max-width: calc(75% - 24px);
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm) and (max-width: ($breakpoint-l - 0.02)) {
+  .col-12 {
+    flex-basis: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+  }
+
+  .col-9 {
+    flex-basis: calc(75% - 24px);
+    max-width: calc(75% - 24px);
+  }
+}
+
+@media (max-width: ($breakpoint-sm - 0.2)) {
+  .cp-row .cp-row, .cp-row .cp-row > * {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col-3 {
+    @include column(6);
+    flex-basis: calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+
+  .col-4 {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    width: 100%;
+  }
+
+  .col-5,
+  .col-6,
+  .col-7 {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+
+  .col-12 {
+    margin-left: 8px;
+    margin-right: 8px;
+    flex-basis: calc(100% - 16px);
+    max-width: calc(100% - 16px);
+  }
+}

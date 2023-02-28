@@ -1,0 +1,37 @@
+﻿
+@mixin flexbox($display: flex) {
+    display: $display;
+}
+
+@mixin flex($columns: initial) {
+    flex: $columns;
+}
+
+@mixin flex-direction($direction: row) {
+    flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap: nowrap) {
+    flex-wrap: $wrap;
+}
+
+@mixin flex-flow($flow) {
+    flex-flow: $flow;
+}
+
+@mixin flex-order($order: 0) {
+    order: $order;
+}
+
+
+@mixin flex-grow($grow: 0) {
+    flex-grow: $grow;
+}
+
+@mixin flex-shrink($shrink: 1) {
+    flex-shrink: $shrink;
+}
+
+@mixin flex-basis($width: auto) {
+    flex-basis: $width;
+}

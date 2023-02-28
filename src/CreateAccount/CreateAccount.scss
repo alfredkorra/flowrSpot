@@ -1,0 +1,49 @@
+
+@import '././../styles/@shared/flexbox';
+@import '././../styles/@shared/grid';
+
+
+.create-account-form {
+
+  span {
+    color: red;
+    font-size: 10px;
+  }
+  .name_error {
+    position: absolute;
+    top: 33%;
+  }
+  .surname_error {
+    position: absolute;
+    top: 33%;
+    right: 35%;
+  }
+  .go_to_login {
+    border: none;
+    margin-top: 25px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgb(234 168 159 / 20%);
+    border-radius: 3px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .create-account-form {
+    .name_error {
+      top: 31%;
+      left: 31px;
+    }
+    .surname_error {
+      top: 45%;
+      right: 77%;
+    }
+  }
+}
