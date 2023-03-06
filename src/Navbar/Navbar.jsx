@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "../Modal/Modal";
 import LoginUser from "../LoginUser/LoginUser";
 import CreateAccount from "../CreateAccount/CreateAccount";
@@ -26,11 +26,18 @@ function Navbar() {
     }
   }
 
+	  useEffect(() => {
+    document.addEventListener("click", (e)=> {
+      if (e.target.closest(".backdrop")) {
+        setShowModal(false)
+      }
+    })
+   },[])
   return (
     <div>
       <div className={click ? "main-container" : ""} onClick={() => Close()} />
       
-       <nav className="navbar container" onClick={(e) => e.stopPropagation()}>
+       <nav className="navbar container">
         <div className="nav-container">
           <a to="/" className="nav-logo">
             <svg
